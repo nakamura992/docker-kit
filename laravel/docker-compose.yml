@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   app:
-    container_name: #設定
+    container_name: ${APP_NAME}-app
     build:
       context: .
       dockerfile: ./docker/php/Dockerfile
@@ -13,7 +13,7 @@ services:
 
   nginx:
     image: nginx
-    container_name: #設定
+    container_name: ${APP_NAME}-nginx
     build:
       context: .
       dockerfile: ./docker/nginx/Dockerfile
@@ -27,7 +27,7 @@ services:
 
   db:
     image: mysql:8.4
-    container_name: #設定
+    container_name: ${APP_NAME}-db
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD}
       TZ: 'Asia/Tokyo'
@@ -42,7 +42,7 @@ services:
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
-    container_name: #設定
+    container_name: ${APP_NAME}-pma
     environment:
       PMA_HOST: db
       PMA_PORT: 3306
