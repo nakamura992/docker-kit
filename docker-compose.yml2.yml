@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   app:
-    container_name: fitness_wearable_app
+    container_name: 
     build:
       context: ./docker/php
       dockerfile: Dockerfile
@@ -15,7 +15,7 @@ services:
 
   nginx:
     image: nginx
-    container_name: fitness_wearable_nginx
+    container_name: 
     ports:
       - 18000:80
     volumes:
@@ -28,12 +28,12 @@ services:
 
   db:
     image: mysql:8.3
-    container_name: fitness_wearable_db
+    container_name: 
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: fitness_wearable
-      MYSQL_USER: fitness_wearable_user
-      MYSQL_PASSWORD: aug8308g
+      MYSQL_ROOT_PASSWORD: 
+      MYSQL_DATABASE: 
+      MYSQL_USER: 
+      MYSQL_PASSWORD: 
       TZ: "Asia/Tokyo"
     command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     volumes:
@@ -45,9 +45,9 @@ services:
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
-    container_name: fitness_wearable_phpmyadmin
+    container_name: 
     environment:
-      PMA_HOST: fitness_wearable_db
+      PMA_HOST: 
       PMA_PORT: 13306
     ports:
       - "18080:80"
